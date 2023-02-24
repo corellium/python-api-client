@@ -6,7 +6,7 @@ Subscriber Invite
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **coupon_options** | [**CouponOptions**](CouponOptions.md) |  | [optional] 
-**plan_options** | [**PlanOptions**](PlanOptions.md) |  | [optional] 
+**plan** | [**Plan**](Plan.md) |  | [optional] 
 **trial** | [**Trial**](Trial.md) |  | [optional] 
 **name** | **str** | Name | [optional] 
 **email** | **str** | Email | [optional] 

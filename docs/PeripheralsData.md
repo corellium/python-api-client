@@ -1,6 +1,7 @@
 # PeripheralsData
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

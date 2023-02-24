@@ -1,6 +1,7 @@
 # SnapshotStatus
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

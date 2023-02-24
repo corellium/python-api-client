@@ -1,6 +1,7 @@
 # RateInfo
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

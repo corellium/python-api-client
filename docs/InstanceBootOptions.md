@@ -1,6 +1,7 @@
 # InstanceBootOptions
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -11,6 +12,7 @@ Name | Type | Description | Notes
 **random_seed** | **str** | Random seed to provide to boot if any | [optional] 
 **pac** | **bool** | Enable PAC | [optional] 
 **aprr** | **bool** | Enable APRR | [optional] 
+**additional_tags** | [**list[InstanceBootOptionsAdditionalTag]**](InstanceBootOptionsAdditionalTag.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

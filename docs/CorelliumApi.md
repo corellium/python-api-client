@@ -5,9 +5,13 @@ All URIs are relative to *https://app.corellium.com/api*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**v1_add_project_key**](CorelliumApi.md#v1_add_project_key) | **POST** /v1/projects/{projectId}/keys | Add Project Authorized Key
+[**v1_add_team_role_to_project**](CorelliumApi.md#v1_add_team_role_to_project) | **PUT** /v1/roles/projects/{projectId}/teams/{teamId}/roles/{roleId} | Add team role to project
+[**v1_add_user_role_to_project**](CorelliumApi.md#v1_add_user_role_to_project) | **PUT** /v1/roles/projects/{projectId}/users/{userId}/roles/{roleId} | Add user role to project
+[**v1_add_user_to_team**](CorelliumApi.md#v1_add_user_to_team) | **PUT** /v1/teams/{teamId}/users/{userId} | Add user to team
 [**v1_agent_app_ready**](CorelliumApi.md#v1_agent_app_ready) | **GET** /v1/instances/{instanceId}/agent/v1/app/ready | Check if App subsystem is ready
 [**v1_agent_delete_file**](CorelliumApi.md#v1_agent_delete_file) | **DELETE** /v1/instances/{instanceId}/agent/v1/file/device/{filePath} | Delete a File on VM
 [**v1_agent_get_file**](CorelliumApi.md#v1_agent_get_file) | **GET** /v1/instances/{instanceId}/agent/v1/file/device/{filePath} | Download a File from VM
+[**v1_agent_get_temp_filename**](CorelliumApi.md#v1_agent_get_temp_filename) | **POST** /v1/instances/{instanceId}/agent/v1/file/temp | Get the path for a new temp file
 [**v1_agent_install_app**](CorelliumApi.md#v1_agent_install_app) | **POST** /v1/instances/{instanceId}/agent/v1/app/install | Install App at path
 [**v1_agent_install_profile**](CorelliumApi.md#v1_agent_install_profile) | **POST** /v1/instances/{instanceId}/agent/v1/profile/install | Install a Profile to VM
 [**v1_agent_kill_app**](CorelliumApi.md#v1_agent_kill_app) | **POST** /v1/instances/{instanceId}/agent/v1/app/apps/{bundleId}/kill | Kill an App
@@ -29,21 +33,30 @@ Method | HTTP request | Description
 [**v1_agent_uninstall_profile**](CorelliumApi.md#v1_agent_uninstall_profile) | **DELETE** /v1/instances/{instanceId}/agent/v1/profile/profiles/{profileId} | Uninstall a Profile from VM
 [**v1_agent_upload_file**](CorelliumApi.md#v1_agent_upload_file) | **PUT** /v1/instances/{instanceId}/agent/v1/file/device/{filePath} | Upload a file to VM
 [**v1_auth_login**](CorelliumApi.md#v1_auth_login) | **POST** /v1/auth/login | Log In
+[**v1_btrace_preauthorize**](CorelliumApi.md#v1_btrace_preauthorize) | **GET** /v1/instances/{instanceId}/btrace-authorize | Pre-authorize an btrace download
 [**v1_clear_core_trace**](CorelliumApi.md#v1_clear_core_trace) | **DELETE** /v1/instances/{instanceId}/strace | Clear CoreTrace logs
+[**v1_clear_hyper_trace**](CorelliumApi.md#v1_clear_hyper_trace) | **DELETE** /v1/instances/{instanceId}/btrace | Clear HyperTrace logs
+[**v1_clear_hyper_trace_hooks**](CorelliumApi.md#v1_clear_hyper_trace_hooks) | **POST** /v1/instances/{instanceId}/hooks/clear | Clear Hooks on an instance
 [**v1_clear_instance_panics**](CorelliumApi.md#v1_clear_instance_panics) | **DELETE** /v1/instances/{instanceId}/panics | Clear Panics
+[**v1_create_hook**](CorelliumApi.md#v1_create_hook) | **POST** /v1/instances/{instanceId}/hooks | Create hypervisor hook for Instance
 [**v1_create_image**](CorelliumApi.md#v1_create_image) | **POST** /v1/images | Create a new Image
 [**v1_create_instance**](CorelliumApi.md#v1_create_instance) | **POST** /v1/instances | Create Instance
 [**v1_create_project**](CorelliumApi.md#v1_create_project) | **POST** /v1/projects | Create a Project
 [**v1_create_snapshot**](CorelliumApi.md#v1_create_snapshot) | **POST** /v1/instances/{instanceId}/snapshots | Create Instance Snapshot
+[**v1_create_subscriber_invite**](CorelliumApi.md#v1_create_subscriber_invite) | **POST** /v1/billing/invites | Create Subscriber Invite
 [**v1_create_user**](CorelliumApi.md#v1_create_user) | **POST** /v1/users | Create User
+[**v1_delete_hook**](CorelliumApi.md#v1_delete_hook) | **DELETE** /v1/hooks/{hookId} | Delete an existing hypervisor hook
 [**v1_delete_image**](CorelliumApi.md#v1_delete_image) | **DELETE** /v2/images/{imageId} | Delete Image
 [**v1_delete_instance**](CorelliumApi.md#v1_delete_instance) | **DELETE** /v1/instances/{instanceId} | Remove Instance
 [**v1_delete_instance_snapshot**](CorelliumApi.md#v1_delete_instance_snapshot) | **DELETE** /v1/instances/{instanceId}/snapshots/{snapshotId} | Delete a Snapshot
+[**v1_delete_project**](CorelliumApi.md#v1_delete_project) | **DELETE** /v1/projects/{projectId} | Delete a Project
 [**v1_delete_snapshot**](CorelliumApi.md#v1_delete_snapshot) | **DELETE** /v1/snapshots/{snapshotId} | Delete a Snapshot
 [**v1_delete_user**](CorelliumApi.md#v1_delete_user) | **DELETE** /v1/users/{userId} | Delete User
-[**v1_deny_trial_request**](CorelliumApi.md#v1_deny_trial_request) | **DELETE** /v1/billing/trial-requests/{requestEmail} | Deny Trial Request
 [**v1_disable_expose_port**](CorelliumApi.md#v1_disable_expose_port) | **POST** /v1/instances/{instanceId}/exposeport/disable | Disable an exposed port on an instance for device access.
 [**v1_enable_expose_port**](CorelliumApi.md#v1_enable_expose_port) | **POST** /v1/instances/{instanceId}/exposeport/enable | Enable an exposed port on an instance for device access.
+[**v1_execute_hyper_trace_hooks**](CorelliumApi.md#v1_execute_hyper_trace_hooks) | **POST** /v1/instances/{instanceId}/hooks/execute | Execute Hooks on an instance
+[**v1_get_hook_by_id**](CorelliumApi.md#v1_get_hook_by_id) | **GET** /v1/hooks/{hookId} | Get hypervisor hook by id
+[**v1_get_hooks**](CorelliumApi.md#v1_get_hooks) | **GET** /v1/instances/{instanceId}/hooks | Get all hypervisor hooks for Instance
 [**v1_get_image**](CorelliumApi.md#v1_get_image) | **GET** /v1/images/{imageId} | Get Image Metadata
 [**v1_get_images**](CorelliumApi.md#v1_get_images) | **GET** /v1/images | Get all Images Metadata
 [**v1_get_instance**](CorelliumApi.md#v1_get_instance) | **GET** /v1/instances/{instanceId} | Get Instance
@@ -52,6 +65,7 @@ Method | HTTP request | Description
 [**v1_get_instance_gpios**](CorelliumApi.md#v1_get_instance_gpios) | **GET** /v1/instances/{instanceId}/gpios | Get Instance GPIOs
 [**v1_get_instance_panics**](CorelliumApi.md#v1_get_instance_panics) | **GET** /v1/instances/{instanceId}/panics | Get Panics
 [**v1_get_instance_peripherals**](CorelliumApi.md#v1_get_instance_peripherals) | **GET** /v1/instances/{instanceId}/peripherals | Get Instance Peripherals
+[**v1_get_instance_quick_connect_command**](CorelliumApi.md#v1_get_instance_quick_connect_command) | **GET** /v1/instances/{instanceId}/quickConnectCommand | Recommended SSH Command for Quick Connect
 [**v1_get_instance_rate**](CorelliumApi.md#v1_get_instance_rate) | **GET** /v1/instances/{instanceId}/rate | Get rate information
 [**v1_get_instance_screenshot**](CorelliumApi.md#v1_get_instance_screenshot) | **GET** /v1/instances/{instanceId}/screenshot.{format} | Get Instance Screenshot
 [**v1_get_instance_snapshot**](CorelliumApi.md#v1_get_instance_snapshot) | **GET** /v1/instances/{instanceId}/snapshots/{snapshotId} | Get Instance Snapshot
@@ -67,24 +81,24 @@ Method | HTTP request | Description
 [**v1_get_projects**](CorelliumApi.md#v1_get_projects) | **GET** /v1/projects | Get Projects
 [**v1_get_reset_link_info**](CorelliumApi.md#v1_get_reset_link_info) | **GET** /v1/users/reset-link-info | Send Password Reset Link Info
 [**v1_get_snapshot**](CorelliumApi.md#v1_get_snapshot) | **GET** /v1/snapshots/{snapshotId} | Get Snapshot
-[**v1_get_trial_requests**](CorelliumApi.md#v1_get_trial_requests) | **GET** /v1/billing/trial-requests | Get Trial Requests
-[**v1_grant_trial_request**](CorelliumApi.md#v1_grant_trial_request) | **POST** /v1/billing/trial-requests/{requestEmail}/grant | Grant Trial Request
-[**v1_instances_instance_id_agent_agent_path_delete**](CorelliumApi.md#v1_instances_instance_id_agent_agent_path_delete) | **DELETE** /v1/instances/{instanceId}/agent/{agentPath} | DELETE proxy to VM Agent
-[**v1_instances_instance_id_agent_agent_path_patch**](CorelliumApi.md#v1_instances_instance_id_agent_agent_path_patch) | **PATCH** /v1/instances/{instanceId}/agent/{agentPath} | PATCH proxy to VM Agent
 [**v1_instances_instance_id_message_post**](CorelliumApi.md#v1_instances_instance_id_message_post) | **POST** /v1/instances/{instanceId}/message | Receive a message on an iOS vm
+[**v1_kcrange**](CorelliumApi.md#v1_kcrange) | **GET** /v1/instances/{instanceId}/btrace-kcrange | Get Kernel extension ranges
 [**v1_list_threads**](CorelliumApi.md#v1_list_threads) | **GET** /v1/instances/{instanceId}/strace/thread-list | Get Running Threads (CoreTrace)
 [**v1_media_play**](CorelliumApi.md#v1_media_play) | **POST** /v1/instances/{instanceId}/media/play | Start playing media
 [**v1_media_stop**](CorelliumApi.md#v1_media_stop) | **POST** /v1/instances/{instanceId}/media/stop | Stop playing media
 [**v1_patch_instance**](CorelliumApi.md#v1_patch_instance) | **PATCH** /v1/instances/{instanceId} | Update Instance
 [**v1_pause_instance**](CorelliumApi.md#v1_pause_instance) | **POST** /v1/instances/{instanceId}/pause | Pause an Instance
 [**v1_post_instance_input**](CorelliumApi.md#v1_post_instance_input) | **POST** /v1/instances/{instanceId}/input | Provide Instance Input
-[**v1_projects_project_id_delete**](CorelliumApi.md#v1_projects_project_id_delete) | **DELETE** /v1/projects/{projectId} | Delete a Project
 [**v1_ready**](CorelliumApi.md#v1_ready) | **GET** /v1/ready | API Status
 [**v1_reboot_instance**](CorelliumApi.md#v1_reboot_instance) | **POST** /v1/instances/{instanceId}/reboot | Reboot an Instance
 [**v1_remove_project_key**](CorelliumApi.md#v1_remove_project_key) | **DELETE** /v1/projects/{projectId}/keys/{keyId} | Delete Project Authorized Key
+[**v1_remove_team_role_from_project**](CorelliumApi.md#v1_remove_team_role_from_project) | **DELETE** /v1/roles/projects/{projectId}/teams/{teamId}/roles/{roleId} | Remove team role from project
+[**v1_remove_user_from_team**](CorelliumApi.md#v1_remove_user_from_team) | **DELETE** /v1/teams/{teamId}/users/{userId} | Remove user from team
+[**v1_remove_user_role_from_project**](CorelliumApi.md#v1_remove_user_role_from_project) | **DELETE** /v1/roles/projects/{projectId}/users/{userId}/roles/{roleId} | Remove user role from project
 [**v1_rename_instance_snapshot**](CorelliumApi.md#v1_rename_instance_snapshot) | **PATCH** /v1/instances/{instanceId}/snapshots/{snapshotId} | Rename a Snapshot
 [**v1_reset_user_password**](CorelliumApi.md#v1_reset_user_password) | **POST** /v1/users/reset-password | Reset User Password
 [**v1_restore_instance_snapshot**](CorelliumApi.md#v1_restore_instance_snapshot) | **POST** /v1/instances/{instanceId}/snapshots/{snapshotId}/restore | Restore a Snapshot
+[**v1_roles**](CorelliumApi.md#v1_roles) | **GET** /v1/roles | Get all roles
 [**v1_rotate_instance**](CorelliumApi.md#v1_rotate_instance) | **POST** /v1/instances/{instanceId}/rotate | Rotate device to specified orientation
 [**v1_send_user_reset_link**](CorelliumApi.md#v1_send_user_reset_link) | **POST** /v1/users/send-reset-link | Send Password Reset Link
 [**v1_set_instance_gpios**](CorelliumApi.md#v1_set_instance_gpios) | **PUT** /v1/instances/{instanceId}/gpios | Set Instance GPIOs
@@ -92,27 +106,36 @@ Method | HTTP request | Description
 [**v1_set_instance_state**](CorelliumApi.md#v1_set_instance_state) | **PUT** /v1/instances/{instanceId}/state | Set state of Instance
 [**v1_snapshot_rename**](CorelliumApi.md#v1_snapshot_rename) | **PATCH** /v1/snapshots/{snapshotId} | Rename a Snapshot
 [**v1_start_core_trace**](CorelliumApi.md#v1_start_core_trace) | **POST** /v1/instances/{instanceId}/strace/enable | Start CoreTrace on an instance
+[**v1_start_hyper_trace**](CorelliumApi.md#v1_start_hyper_trace) | **POST** /v1/instances/{instanceId}/btrace/enable | Start HyperTrace on an instance
 [**v1_start_instance**](CorelliumApi.md#v1_start_instance) | **POST** /v1/instances/{instanceId}/start | Start an Instance
 [**v1_start_network_monitor**](CorelliumApi.md#v1_start_network_monitor) | **POST** /v1/instances/{instanceId}/sslsplit/enable | Start Network Monitor on an instance.
 [**v1_stop_core_trace**](CorelliumApi.md#v1_stop_core_trace) | **POST** /v1/instances/{instanceId}/strace/disable | Stop CoreTrace on an instance.
+[**v1_stop_hyper_trace**](CorelliumApi.md#v1_stop_hyper_trace) | **POST** /v1/instances/{instanceId}/btrace/disable | Stop HyperTrace on an instance.
 [**v1_stop_instance**](CorelliumApi.md#v1_stop_instance) | **POST** /v1/instances/{instanceId}/stop | Stop an Instance
 [**v1_stop_network_monitor**](CorelliumApi.md#v1_stop_network_monitor) | **POST** /v1/instances/{instanceId}/sslsplit/disable | Stop Network Monitor on an instance.
-[**v1_trial_requests**](CorelliumApi.md#v1_trial_requests) | **POST** /v1/billing/trial-requests | Create Trial Request
-[**v1_trial_requests_v3**](CorelliumApi.md#v1_trial_requests_v3) | **POST** /v1/billing/trial-requests-v3 | Create Trial Request (v1.3)
+[**v1_team_change**](CorelliumApi.md#v1_team_change) | **PATCH** /v1/teams/{teamId} | Update team
+[**v1_team_create**](CorelliumApi.md#v1_team_create) | **POST** /v1/teams | Create team
+[**v1_team_delete**](CorelliumApi.md#v1_team_delete) | **DELETE** /v1/teams/{teamId} | Delete team
+[**v1_teams**](CorelliumApi.md#v1_teams) | **GET** /v1/teams | Get teams
 [**v1_unpause_instance**](CorelliumApi.md#v1_unpause_instance) | **POST** /v1/instances/{instanceId}/unpause | Unpause an Instance
-[**v1_update_current_domain**](CorelliumApi.md#v1_update_current_domain) | **PATCH** /v1/domain | Update Current Domain
+[**v1_update_hook**](CorelliumApi.md#v1_update_hook) | **PUT** /v1/hooks/{hookId} | Update an existing hypervisor hook
 [**v1_update_project**](CorelliumApi.md#v1_update_project) | **PATCH** /v1/projects/{projectId} | Update a Project
 [**v1_update_project_settings**](CorelliumApi.md#v1_update_project_settings) | **PATCH** /v1/projects/{projectId}/settings | Change Project Settings
 [**v1_update_user**](CorelliumApi.md#v1_update_user) | **PATCH** /v1/users/{userId} | Update User
+[**v1_upgrade_instance**](CorelliumApi.md#v1_upgrade_instance) | **POST** /v1/instances/{instanceId}/upgrade | Upgrade iOS version
 [**v1_upload_image_data**](CorelliumApi.md#v1_upload_image_data) | **POST** /v1/images/{imageId} | Upload Image Data
 [**v1_user_agree_terms**](CorelliumApi.md#v1_user_agree_terms) | **POST** /v1/users/agree | Consent to the current terms and conditions
-[**v1_users_change_password_post**](CorelliumApi.md#v1_users_change_password_post) | **POST** /v1/users/change-password | Authenticated solely by the old-password.
+[**v1_users_change_password_post**](CorelliumApi.md#v1_users_change_password_post) | **POST** /v1/users/change-password | Change User Password
 [**v1_users_login**](CorelliumApi.md#v1_users_login) | **POST** /v1/users/login | Log In
-[**v2_trial_requests**](CorelliumApi.md#v2_trial_requests) | **POST** /v2/billing/trial-requests | Create Trial Request (v2)
+[**v1_web_player_allowed_domains**](CorelliumApi.md#v1_web_player_allowed_domains) | **GET** /v1/webplayer/allowedDomains | Retrieve the list of allowed domains for all Webplayer sessions
+[**v1_web_player_create_session**](CorelliumApi.md#v1_web_player_create_session) | **POST** /v1/webplayer | Create a new Webplayer Session
+[**v1_web_player_destroy_session**](CorelliumApi.md#v1_web_player_destroy_session) | **DELETE** /v1/webplayer/{sessionId} | Tear down a Webplayer Session
+[**v1_web_player_list_sessions**](CorelliumApi.md#v1_web_player_list_sessions) | **GET** /v1/webplayer | List all Webplayer sessions
+[**v1_web_player_session_info**](CorelliumApi.md#v1_web_player_session_info) | **GET** /v1/webplayer/{sessionId} | Retrieve Webplayer Session Information
 
 
 # **v1_add_project_key**
-> str v1_add_project_key(project_id, project_key)
+> ProjectKey v1_add_project_key(project_id, project_key)
 
 Add Project Authorized Key
 
@@ -145,7 +168,7 @@ async def main():
         api_instance = corellium_api.CorelliumApi(api_client)
         project_id = 'project_id_example' # str | Project ID - uuid
 project_key = {
-  "type": "ssh",
+  "kind": "ssh",
   "label": "My New Key",
   "key": "ssh-ed25519 <key>"
 } # ProjectKey | Key to add
@@ -170,7 +193,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**ProjectKey**](ProjectKey.md)
 
 ### Authorization
 
@@ -184,8 +207,240 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Authorized Keys |  -  |
+**200** | Authorized Key |  -  |
 **403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_add_team_role_to_project**
+> v1_add_team_role_to_project(project_id, team_id, role_id)
+
+Add team role to project
+
+This endpoint is available for Enterprise accounts only
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        project_id = 'project_id_example' # str | Project ID - uuid
+team_id = 'team_id_example' # str | Team ID - uuid
+role_id = 'role_id_example' # str | Role ID - uuid
+
+        try:
+            # Add team role to project
+            api_instance.v1_add_team_role_to_project(project_id, team_id, role_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_add_team_role_to_project: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **str**| Project ID - uuid | 
+ **team_id** | **str**| Team ID - uuid | 
+ **role_id** | **str**| Role ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_add_user_role_to_project**
+> v1_add_user_role_to_project(project_id, user_id, role_id)
+
+Add user role to project
+
+This endpoint is available for Enterprise accounts only
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        project_id = 'project_id_example' # str | Project ID - uuid
+user_id = 'user_id_example' # str | User ID - uuid
+role_id = 'role_id_example' # str | Role ID - uuid
+
+        try:
+            # Add user role to project
+            api_instance.v1_add_user_role_to_project(project_id, user_id, role_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_add_user_role_to_project: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **str**| Project ID - uuid | 
+ **user_id** | **str**| User ID - uuid | 
+ **role_id** | **str**| Role ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_add_user_to_team**
+> v1_add_user_to_team(team_id, user_id)
+
+Add user to team
+
+This endpoint is available for Enterprise accounts only
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        team_id = 'team_id_example' # str | Team ID - uuid
+user_id = 'user_id_example' # str | User ID - uuid
+
+        try:
+            # Add user to team
+            api_instance.v1_add_user_to_team(team_id, user_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_add_user_to_team: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **team_id** | **str**| Team ID - uuid | 
+ **user_id** | **str**| User ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Success |  -  |
+**403** | Forbidden |  -  |
+**500** | Internal Server Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -404,6 +659,80 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | File Contents |  -  |
+**400** | Agent Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_agent_get_temp_filename**
+> str v1_agent_get_temp_filename(instance_id)
+
+Get the path for a new temp file
+
+Returns a temporary random filename that is guranteed to be unique on the VMs filesystem at the time of invocation of this method.
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | Instance ID - uuid
+
+        try:
+            # Get the path for a new temp file
+            api_response = await api_instance.v1_agent_get_temp_filename(instance_id)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_agent_get_temp_filename: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**| Instance ID - uuid | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | The temp file path |  -  |
 **400** | Agent Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1872,7 +2201,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | No content |  -  |
+**204** | No content |  -  |
 **400** | Agent Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -1942,6 +2271,79 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | User Authorization |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_btrace_preauthorize**
+> object v1_btrace_preauthorize(instance_id)
+
+Pre-authorize an btrace download
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | Instance ID - uuid
+
+        try:
+            # Pre-authorize an btrace download
+            api_response = await api_instance.v1_btrace_preauthorize(instance_id)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_btrace_preauthorize: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**| Instance ID - uuid | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Token |  -  |
+**400** | Bad Request |  -  |
 **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2017,6 +2419,149 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_clear_hyper_trace**
+> v1_clear_hyper_trace(instance_id)
+
+Clear HyperTrace logs
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | Instance ID - uuid
+
+        try:
+            # Clear HyperTrace logs
+            api_instance.v1_clear_hyper_trace(instance_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_clear_hyper_trace: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**| Instance ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Accepted |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_clear_hyper_trace_hooks**
+> v1_clear_hyper_trace_hooks(instance_id)
+
+Clear Hooks on an instance
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | Instance ID - uuid
+
+        try:
+            # Clear Hooks on an instance
+            api_instance.v1_clear_hyper_trace_hooks(instance_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_clear_hyper_trace_hooks: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**| Instance ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_clear_instance_panics**
 > v1_clear_instance_panics(instance_id)
 
@@ -2088,8 +2633,83 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_create_hook**
+> Hook v1_create_hook(instance_id, v1_create_hook_parameters)
+
+Create hypervisor hook for Instance
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | Instance ID - uuid
+v1_create_hook_parameters = corellium_api.V1CreateHookParameters() # V1CreateHookParameters | application/json
+
+        try:
+            # Create hypervisor hook for Instance
+            api_response = await api_instance.v1_create_hook(instance_id, v1_create_hook_parameters)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_create_hook: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**| Instance ID - uuid | 
+ **v1_create_hook_parameters** | [**V1CreateHookParameters**](V1CreateHookParameters.md)| application/json | 
+
+### Return type
+
+[**Hook**](Hook.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**201** | Hook |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_create_image**
-> Image v1_create_image(type, encoding, name=name, project=project, instance=instance, file=file)
+> Image v1_create_image(type, encoding, encapsulated=encapsulated, name=name, project=project, instance=instance, file=file)
 
 Create a new Image
 
@@ -2122,6 +2742,7 @@ async def main():
         api_instance = corellium_api.CorelliumApi(api_client)
         type = 'type_example' # str | Image type
 encoding = 'encoding_example' # str | How the file is stored
+encapsulated = True # bool | set to false if the uploaded file is not encapsulated inside an outer zipfile (optional)
 name = 'name_example' # str | Image name (optional)
 project = 'project_example' # str | Project ID (optional)
 instance = 'instance_example' # str | Instance ID (optional)
@@ -2129,7 +2750,7 @@ file = '/path/to/file' # file | Optionally the actual file (optional)
 
         try:
             # Create a new Image
-            api_response = await api_instance.v1_create_image(type, encoding, name=name, project=project, instance=instance, file=file)
+            api_response = await api_instance.v1_create_image(type, encoding, encapsulated=encapsulated, name=name, project=project, instance=instance, file=file)
             pprint(api_response)
         except ApiException as e:
             print("Exception when calling CorelliumApi->v1_create_image: %s\n" % e)
@@ -2144,6 +2765,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **type** | **str**| Image type | 
  **encoding** | **str**| How the file is stored | 
+ **encapsulated** | **bool**| set to false if the uploaded file is not encapsulated inside an outer zipfile | [optional] 
  **name** | **str**| Image name | [optional] 
  **project** | **str**| Project ID | [optional] 
  **instance** | **str**| Instance ID | [optional] 
@@ -2406,6 +3028,102 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_create_subscriber_invite**
+> SubscriberInvite v1_create_subscriber_invite(subscriber_invite)
+
+Create Subscriber Invite
+
+Create Subscriber Invite
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        subscriber_invite =  {
+  "coupon_options": {
+    "type": "percent",
+    "amount": 100,
+    "used": false
+  },
+  "plan": {
+    "licenseType": "individual-usage",
+    "cores": 6
+  },
+  "trial": {
+    "duration": 100
+  },
+  "name": "John",
+  "email": "john.doe@example.com",
+  "coupon_code": "1I454WY14V4QV9",
+  "domain": null,
+  "aggregate": "app.example.com",
+  "use_by": null,
+  "active": true,
+  "reusable": false,
+  "createdAt": "2022-05-06T02:39:23.000Z",
+  "updatedAt": "2022-05-06T02:39:23.000Z"
+} # SubscriberInvite | Payload of Subscriber Invite
+
+        try:
+            # Create Subscriber Invite
+            api_response = await api_instance.v1_create_subscriber_invite(subscriber_invite)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_create_subscriber_invite: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **subscriber_invite** | [**SubscriberInvite**](SubscriberInvite.md)| Payload of Subscriber Invite | 
+
+### Return type
+
+[**SubscriberInvite**](SubscriberInvite.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_create_user**
 > object v1_create_user(body)
 
@@ -2474,6 +3192,78 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | User |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_delete_hook**
+> v1_delete_hook(hook_id)
+
+Delete an existing hypervisor hook
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        hook_id = 'hook_id_example' # str | Hook ID
+
+        try:
+            # Delete an existing hypervisor hook
+            api_instance.v1_delete_hook(hook_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_delete_hook: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hook_id** | **str**| Hook ID | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Accepted |  -  |
+**400** | Bad Request |  -  |
 **403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
@@ -2695,6 +3485,77 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_delete_project**
+> v1_delete_project(project_id)
+
+Delete a Project
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        project_id = 'project_id_example' # str | Project ID - uuid
+
+        try:
+            # Delete a Project
+            api_instance.v1_delete_project(project_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_delete_project: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **str**| Project ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | OK |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_delete_snapshot**
 > v1_delete_snapshot(snapshot_id)
 
@@ -2836,80 +3697,6 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 **200** | User |  -  |
 **403** | Forbidden |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **v1_deny_trial_request**
-> object v1_deny_trial_request(request_email)
-
-Deny Trial Request
-
-Allow cloud administrators to deny an invite.
-
-### Example
-
-* Bearer (ApiToken or JWT) Authentication (BearerAuth):
-```python
-from __future__ import print_function
-import time
-import asyncio
-import corellium_api
-from corellium_api.rest import ApiException
-from pprint import pprint
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (ApiToken or JWT): BearerAuth
-configuration = corellium_api.Configuration(
-    host = "https://app.corellium.com/api"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-
-async def main():
-    # Enter a context with an instance of the API client
-    async with corellium_api.ApiClient(configuration) as api_client:
-        # Create an instance of the API class
-        api_instance = corellium_api.CorelliumApi(api_client)
-        request_email = 'request_email_example' # str | Email address
-
-        try:
-            # Deny Trial Request
-            api_response = await api_instance.v1_deny_trial_request(request_email)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling CorelliumApi->v1_deny_trial_request: %s\n" % e)
-
-if __name__ == "__main__":
-    asyncio.run(main())
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **request_email** | **str**| Email address | 
-
-### Return type
-
-**object**
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
-**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -3057,6 +3844,231 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_execute_hyper_trace_hooks**
+> v1_execute_hyper_trace_hooks(instance_id)
+
+Execute Hooks on an instance
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | Instance ID - uuid
+
+        try:
+            # Execute Hooks on an instance
+            api_instance.v1_execute_hyper_trace_hooks(instance_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_execute_hyper_trace_hooks: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**| Instance ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_hook_by_id**
+> Hook v1_get_hook_by_id(hook_id)
+
+Get hypervisor hook by id
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        hook_id = 'hook_id_example' # str | Hook Id
+
+        try:
+            # Get hypervisor hook by id
+            api_response = await api_instance.v1_get_hook_by_id(hook_id)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_get_hook_by_id: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **hook_id** | **str**| Hook Id | 
+
+### Return type
+
+[**Hook**](Hook.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Hook |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_hooks**
+> list[Hook] v1_get_hooks(instance_id, limit=limit, offset=offset, sort=sort)
+
+Get all hypervisor hooks for Instance
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | Instance ID - uuid
+limit = 3.4 # float | limit for pagination results, defaults to 20 (optional)
+offset = 3.4 # float | offset for pagination results, defaults to 0 (optional)
+sort = 'sort_example' # str | sort ASC or DESC, defaults to DESC (optional)
+
+        try:
+            # Get all hypervisor hooks for Instance
+            api_response = await api_instance.v1_get_hooks(instance_id, limit=limit, offset=offset, sort=sort)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_get_hooks: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**| Instance ID - uuid | 
+ **limit** | **float**| limit for pagination results, defaults to 20 | [optional] 
+ **offset** | **float**| offset for pagination results, defaults to 0 | [optional] 
+ **sort** | **str**| sort ASC or DESC, defaults to DESC | [optional] 
+
+### Return type
+
+[**list[Hook]**](Hook.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Hooks |  -  |
+**304** | No changes |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_get_image**
 > Image v1_get_image(image_id)
 
@@ -3130,7 +4142,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_get_images**
-> Image v1_get_images(project=project)
+> list[Image] v1_get_images(project=project)
 
 Get all Images Metadata
 
@@ -3182,7 +4194,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Image**](Image.md)
+[**list[Image]**](Image.md)
 
 ### Authorization
 
@@ -3421,7 +4433,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_get_instance_gpios**
-> dict(str, GpioStateDefinition) v1_get_instance_gpios(instance_id)
+> GpiosState v1_get_instance_gpios(instance_id)
 
 Get Instance GPIOs
 
@@ -3473,7 +4485,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**dict(str, GpioStateDefinition)**](GpioStateDefinition.md)
+[**GpiosState**](GpiosState.md)
 
 ### Authorization
 
@@ -3635,6 +4647,79 @@ Name | Type | Description  | Notes
 **200** | Current Peripherals State |  -  |
 **403** | Forbidden |  -  |
 **404** | Not Found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_get_instance_quick_connect_command**
+> str v1_get_instance_quick_connect_command(instance_id)
+
+Recommended SSH Command for Quick Connect
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | Instance ID - uuid
+
+        try:
+            # Recommended SSH Command for Quick Connect
+            api_response = await api_instance.v1_get_instance_quick_connect_command(instance_id)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_get_instance_quick_connect_command: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**| Instance ID - uuid | 
+
+### Return type
+
+**str**
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Quick Connect Command |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -4041,7 +5126,7 @@ async def main():
     async with corellium_api.ApiClient(configuration) as api_client:
         # Create an instance of the API class
         api_instance = corellium_api.CorelliumApi(api_client)
-        name = 'name_example' # str | Optionally filter by project name (optional)
+        name = 'name_example' # str | Optionally filter by instance name (optional)
 return_attr = ['return_attr_example'] # list[str] | Attributes to include in instance return (optional)
 
         try:
@@ -4059,7 +5144,7 @@ if __name__ == "__main__":
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **name** | **str**| Optionally filter by project name | [optional] 
+ **name** | **str**| Optionally filter by instance name | [optional] 
  **return_attr** | [**list[str]**](str.md)| Attributes to include in instance return | [optional] 
 
 ### Return type
@@ -4729,301 +5814,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_get_trial_requests**
-> object v1_get_trial_requests()
-
-Get Trial Requests
-
-Allow cloud administrators to list trial requests.
-
-### Example
-
-* Bearer (ApiToken or JWT) Authentication (BearerAuth):
-```python
-from __future__ import print_function
-import time
-import asyncio
-import corellium_api
-from corellium_api.rest import ApiException
-from pprint import pprint
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (ApiToken or JWT): BearerAuth
-configuration = corellium_api.Configuration(
-    host = "https://app.corellium.com/api"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-
-async def main():
-    # Enter a context with an instance of the API client
-    async with corellium_api.ApiClient(configuration) as api_client:
-        # Create an instance of the API class
-        api_instance = corellium_api.CorelliumApi(api_client)
-        
-        try:
-            # Get Trial Requests
-            api_response = await api_instance.v1_get_trial_requests()
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling CorelliumApi->v1_get_trial_requests: %s\n" % e)
-
-if __name__ == "__main__":
-    asyncio.run(main())
-```
-
-### Parameters
-This endpoint does not need any parameter.
-
-### Return type
-
-**object**
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **v1_grant_trial_request**
-> GrantTrialRequestResponse v1_grant_trial_request(request_email)
-
-Grant Trial Request
-
-Allow cloud administrators grant an early access request, generating an invite and e-mailing the recipient.
-
-### Example
-
-* Bearer (ApiToken or JWT) Authentication (BearerAuth):
-```python
-from __future__ import print_function
-import time
-import asyncio
-import corellium_api
-from corellium_api.rest import ApiException
-from pprint import pprint
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (ApiToken or JWT): BearerAuth
-configuration = corellium_api.Configuration(
-    host = "https://app.corellium.com/api"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-
-async def main():
-    # Enter a context with an instance of the API client
-    async with corellium_api.ApiClient(configuration) as api_client:
-        # Create an instance of the API class
-        api_instance = corellium_api.CorelliumApi(api_client)
-        request_email = 'request_email_example' # str | Email address
-
-        try:
-            # Grant Trial Request
-            api_response = await api_instance.v1_grant_trial_request(request_email)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling CorelliumApi->v1_grant_trial_request: %s\n" % e)
-
-if __name__ == "__main__":
-    asyncio.run(main())
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **request_email** | **str**| Email address | 
-
-### Return type
-
-[**GrantTrialRequestResponse**](GrantTrialRequestResponse.md)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Success |  -  |
-**404** | Not Found |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **v1_instances_instance_id_agent_agent_path_delete**
-> str v1_instances_instance_id_agent_agent_path_delete(instance_id, agent_path)
-
-DELETE proxy to VM Agent
-
-### Example
-
-* Bearer (ApiToken or JWT) Authentication (BearerAuth):
-```python
-from __future__ import print_function
-import time
-import asyncio
-import corellium_api
-from corellium_api.rest import ApiException
-from pprint import pprint
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (ApiToken or JWT): BearerAuth
-configuration = corellium_api.Configuration(
-    host = "https://app.corellium.com/api"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-
-async def main():
-    # Enter a context with an instance of the API client
-    async with corellium_api.ApiClient(configuration) as api_client:
-        # Create an instance of the API class
-        api_instance = corellium_api.CorelliumApi(api_client)
-        instance_id = 'instance_id_example' # str | Instance ID - uuid
-agent_path = 'agent_path_example' # str | Path to DELETE
-
-        try:
-            # DELETE proxy to VM Agent
-            api_response = await api_instance.v1_instances_instance_id_agent_agent_path_delete(instance_id, agent_path)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling CorelliumApi->v1_instances_instance_id_agent_agent_path_delete: %s\n" % e)
-
-if __name__ == "__main__":
-    asyncio.run(main())
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instance_id** | **str**| Instance ID - uuid | 
- **agent_path** | **str**| Path to DELETE | 
-
-### Return type
-
-**str**
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: binary, application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Response |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **v1_instances_instance_id_agent_agent_path_patch**
-> str v1_instances_instance_id_agent_agent_path_patch(instance_id, agent_path, body=body)
-
-PATCH proxy to VM Agent
-
-### Example
-
-* Bearer (ApiToken or JWT) Authentication (BearerAuth):
-```python
-from __future__ import print_function
-import time
-import asyncio
-import corellium_api
-from corellium_api.rest import ApiException
-from pprint import pprint
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (ApiToken or JWT): BearerAuth
-configuration = corellium_api.Configuration(
-    host = "https://app.corellium.com/api"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-
-async def main():
-    # Enter a context with an instance of the API client
-    async with corellium_api.ApiClient(configuration) as api_client:
-        # Create an instance of the API class
-        api_instance = corellium_api.CorelliumApi(api_client)
-        instance_id = 'instance_id_example' # str | Instance ID - uuid
-agent_path = 'agent_path_example' # str | Path to PATCH
-body = None # object | PATCH Body (optional)
-
-        try:
-            # PATCH proxy to VM Agent
-            api_response = await api_instance.v1_instances_instance_id_agent_agent_path_patch(instance_id, agent_path, body=body)
-            pprint(api_response)
-        except ApiException as e:
-            print("Exception when calling CorelliumApi->v1_instances_instance_id_agent_agent_path_patch: %s\n" % e)
-
-if __name__ == "__main__":
-    asyncio.run(main())
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **instance_id** | **str**| Instance ID - uuid | 
- **agent_path** | **str**| Path to PATCH | 
- **body** | **object**| PATCH Body | [optional] 
-
-### Return type
-
-**str**
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: binary, application/json
-
-### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Response |  -  |
-**400** | Bad Request |  -  |
-**403** | Forbidden |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **v1_instances_instance_id_message_post**
 > v1_instances_instance_id_message_post(instance_id)
 
@@ -5091,6 +5881,79 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_kcrange**
+> list[Kcrange] v1_kcrange(instance_id)
+
+Get Kernel extension ranges
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | Instance ID - uuid
+
+        try:
+            # Get Kernel extension ranges
+            api_response = await api_instance.v1_kcrange(instance_id)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_kcrange: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**| Instance ID - uuid | 
+
+### Return type
+
+[**list[Kcrange]**](Kcrange.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Kcranges |  -  |
 **400** | Bad Request |  -  |
 **403** | Forbidden |  -  |
 
@@ -5556,72 +6419,6 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_projects_project_id_delete**
-> v1_projects_project_id_delete(project_id)
-
-Delete a Project
-
-### Example
-
-* Bearer (ApiToken or JWT) Authentication (BearerAuth):
-```python
-from __future__ import print_function
-import time
-import asyncio
-import corellium_api
-from corellium_api.rest import ApiException
-from pprint import pprint
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure Bearer authorization (ApiToken or JWT): BearerAuth
-configuration = corellium_api.Configuration(
-    host = "https://app.corellium.com/api"
-)
-configuration.access_token = 'YOUR_ACCESS_TOKEN'
-
-
-async def main():
-    # Enter a context with an instance of the API client
-    async with corellium_api.ApiClient(configuration) as api_client:
-        # Create an instance of the API class
-        api_instance = corellium_api.CorelliumApi(api_client)
-        project_id = 'project_id_example' # str | Project ID - uuid
-
-        try:
-            # Delete a Project
-            api_instance.v1_projects_project_id_delete(project_id)
-        except ApiException as e:
-            print("Exception when calling CorelliumApi->v1_projects_project_id_delete: %s\n" % e)
-
-if __name__ == "__main__":
-    asyncio.run(main())
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **project_id** | **str**| Project ID - uuid | 
-
-### Return type
-
-void (empty response body)
-
-### Authorization
-
-[BearerAuth](../README.md#BearerAuth)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: Not defined
-
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **v1_ready**
 > v1_ready()
 
@@ -5828,6 +6625,238 @@ void (empty response body)
 **204** | Deleted |  -  |
 **403** | Forbidden |  -  |
 **404** | Not found |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_remove_team_role_from_project**
+> v1_remove_team_role_from_project(project_id, team_id, role_id)
+
+Remove team role from project
+
+This endpoint is available for Enterprise accounts only
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        project_id = 'project_id_example' # str | Project ID - uuid
+team_id = 'team_id_example' # str | Team ID - uuid
+role_id = 'role_id_example' # str | Role ID - uuid
+
+        try:
+            # Remove team role from project
+            api_instance.v1_remove_team_role_from_project(project_id, team_id, role_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_remove_team_role_from_project: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **str**| Project ID - uuid | 
+ **team_id** | **str**| Team ID - uuid | 
+ **role_id** | **str**| Role ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_remove_user_from_team**
+> v1_remove_user_from_team(team_id, user_id)
+
+Remove user from team
+
+This endpoint is available for Enterprise accounts only
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        team_id = 'team_id_example' # str | Team ID - uuid
+user_id = 'user_id_example' # str | User ID - uuid
+
+        try:
+            # Remove user from team
+            api_instance.v1_remove_user_from_team(team_id, user_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_remove_user_from_team: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **team_id** | **str**| Team ID - uuid | 
+ **user_id** | **str**| User ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Success |  -  |
+**403** | Forbidden |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_remove_user_role_from_project**
+> v1_remove_user_role_from_project(project_id, user_id, role_id)
+
+Remove user role from project
+
+This endpoint is available for Enterprise accounts only
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        project_id = 'project_id_example' # str | Project ID - uuid
+user_id = 'user_id_example' # str | User ID - uuid
+role_id = 'role_id_example' # str | Role ID - uuid
+
+        try:
+            # Remove user role from project
+            api_instance.v1_remove_user_role_from_project(project_id, user_id, role_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_remove_user_role_from_project: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **project_id** | **str**| Project ID - uuid | 
+ **user_id** | **str**| User ID - uuid | 
+ **role_id** | **str**| Role ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -6051,6 +7080,77 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_roles**
+> list[Role] v1_roles()
+
+Get all roles
+
+This endpoint is available for Enterprise accounts only
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        
+        try:
+            # Get all roles
+            api_response = await api_instance.v1_roles()
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_roles: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**list[Role]**](Role.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Roles |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_rotate_instance**
 > v1_rotate_instance(instance_id, rotate_body)
 
@@ -6195,7 +7295,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_set_instance_gpios**
-> dict(str, GpioStateDefinition) v1_set_instance_gpios(instance_id, request_body)
+> GpiosState v1_set_instance_gpios(instance_id, gpios_state)
 
 Set Instance GPIOs
 
@@ -6227,7 +7327,7 @@ async def main():
         # Create an instance of the API class
         api_instance = corellium_api.CorelliumApi(api_client)
         instance_id = 'instance_id_example' # str | Instance ID - uuid
-request_body = {
+gpios_state = {
   "button": {
     "bitCount": 2,
     "banks": [
@@ -6241,11 +7341,11 @@ request_body = {
       [0,1,0,1,0,1,0,1]
     ]
   }
-} # dict(str, GpioStateDefinition) | New GPIO state
+} # GpiosState | New GPIO state
 
         try:
             # Set Instance GPIOs
-            api_response = await api_instance.v1_set_instance_gpios(instance_id, request_body)
+            api_response = await api_instance.v1_set_instance_gpios(instance_id, gpios_state)
             pprint(api_response)
         except ApiException as e:
             print("Exception when calling CorelliumApi->v1_set_instance_gpios: %s\n" % e)
@@ -6259,11 +7359,11 @@ if __name__ == "__main__":
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instance_id** | **str**| Instance ID - uuid | 
- **request_body** | [**dict(str, GpioStateDefinition)**](GpioStateDefinition.md)| New GPIO state | 
+ **gpios_state** | [**GpiosState**](GpiosState.md)| New GPIO state | 
 
 ### Return type
 
-[**dict(str, GpioStateDefinition)**](GpioStateDefinition.md)
+[**GpiosState**](GpiosState.md)
 
 ### Authorization
 
@@ -6591,6 +7691,80 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_start_hyper_trace**
+> v1_start_hyper_trace(instance_id, btrace_enable_options)
+
+Start HyperTrace on an instance
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | Instance ID - uuid
+btrace_enable_options = corellium_api.BtraceEnableOptions() # BtraceEnableOptions | 
+
+        try:
+            # Start HyperTrace on an instance
+            api_instance.v1_start_hyper_trace(instance_id, btrace_enable_options)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_start_hyper_trace: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**| Instance ID - uuid | 
+ **btrace_enable_options** | [**BtraceEnableOptions**](BtraceEnableOptions.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_start_instance**
 > v1_start_instance(instance_id, instance_start_options=instance_start_options)
 
@@ -6810,6 +7984,78 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_stop_hyper_trace**
+> v1_stop_hyper_trace(instance_id)
+
+Stop HyperTrace on an instance.
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | Instance ID - uuid
+
+        try:
+            # Stop HyperTrace on an instance.
+            api_instance.v1_stop_hyper_trace(instance_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_stop_hyper_trace: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**| Instance ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | No Content |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_stop_instance**
 > v1_stop_instance(instance_id, instance_stop_options=instance_stop_options)
 
@@ -6957,15 +8203,16 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_trial_requests**
-> object v1_trial_requests(trial_request_options)
+# **v1_team_change**
+> v1_team_change(team_id, create_team)
 
-Create Trial Request
+Update team
 
-Allow third party integrations to create trial requests
+This endpoint is available for Enterprise accounts only
 
 ### Example
 
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
@@ -6973,11 +8220,16 @@ import asyncio
 import corellium_api
 from corellium_api.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://app.corellium.com/api
-# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
 configuration = corellium_api.Configuration(
     host = "https://app.corellium.com/api"
 )
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 
 async def main():
@@ -6985,16 +8237,14 @@ async def main():
     async with corellium_api.ApiClient(configuration) as api_client:
         # Create an instance of the API class
         api_instance = corellium_api.CorelliumApi(api_client)
-        trial_request_options = {
-    "email": "user@example.com"
-} # TrialRequestOptions | Trial Request Options
+        team_id = 'team_id_example' # str | Team ID - uuid
+create_team = { "name": "Test Team"} # CreateTeam | 
 
         try:
-            # Create Trial Request
-            api_response = await api_instance.v1_trial_requests(trial_request_options)
-            pprint(api_response)
+            # Update team
+            api_instance.v1_team_change(team_id, create_team)
         except ApiException as e:
-            print("Exception when calling CorelliumApi->v1_trial_requests: %s\n" % e)
+            print("Exception when calling CorelliumApi->v1_team_change: %s\n" % e)
 
 if __name__ == "__main__":
     asyncio.run(main())
@@ -7004,15 +8254,16 @@ if __name__ == "__main__":
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trial_request_options** | [**TrialRequestOptions**](TrialRequestOptions.md)| Trial Request Options | 
+ **team_id** | **str**| Team ID - uuid | 
+ **create_team** | [**CreateTeam**](CreateTeam.md)|  | 
 
 ### Return type
 
-**object**
+void (empty response body)
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -7022,20 +8273,22 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
-**400** | Bad Request |  -  |
+**204** | Success |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_trial_requests_v3**
-> object v1_trial_requests_v3(trial_request_options)
+# **v1_team_create**
+> TeamCreate v1_team_create(create_team)
 
-Create Trial Request (v1.3)
+Create team
 
-Allow third party integrations to create trial requests
+This endpoint is available for Enterprise accounts only
 
 ### Example
 
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
@@ -7043,11 +8296,16 @@ import asyncio
 import corellium_api
 from corellium_api.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://app.corellium.com/api
-# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
 configuration = corellium_api.Configuration(
     host = "https://app.corellium.com/api"
 )
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 
 async def main():
@@ -7055,17 +8313,14 @@ async def main():
     async with corellium_api.ApiClient(configuration) as api_client:
         # Create an instance of the API class
         api_instance = corellium_api.CorelliumApi(api_client)
-        trial_request_options = {
-    "email": "user@example.com",
-    "name": "Jane Doe"
-} # TrialRequestOptions | Trial Request Options
+        create_team = { "name": "Test Team"} # CreateTeam | 
 
         try:
-            # Create Trial Request (v1.3)
-            api_response = await api_instance.v1_trial_requests_v3(trial_request_options)
+            # Create team
+            api_response = await api_instance.v1_team_create(create_team)
             pprint(api_response)
         except ApiException as e:
-            print("Exception when calling CorelliumApi->v1_trial_requests_v3: %s\n" % e)
+            print("Exception when calling CorelliumApi->v1_team_create: %s\n" % e)
 
 if __name__ == "__main__":
     asyncio.run(main())
@@ -7075,15 +8330,15 @@ if __name__ == "__main__":
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trial_request_options** | [**TrialRequestOptions**](TrialRequestOptions.md)| Trial Request Options | 
+ **create_team** | [**CreateTeam**](CreateTeam.md)|  | 
 
 ### Return type
 
-**object**
+[**TeamCreate**](TeamCreate.md)
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -7093,8 +8348,153 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | User |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_team_delete**
+> v1_team_delete(team_id)
+
+Delete team
+
+This endpoint is available for Enterprise accounts only
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        team_id = 'team_id_example' # str | Team ID - uuid
+
+        try:
+            # Delete team
+            api_instance.v1_team_delete(team_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_team_delete: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **team_id** | **str**| Team ID - uuid | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Success |  -  |
+**403** | Forbidden |  -  |
+**500** | Internal Server Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_teams**
+> list[Team] v1_teams()
+
+Get teams
+
+This endpoint is available for Enterprise accounts only
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        
+        try:
+            # Get teams
+            api_response = await api_instance.v1_teams()
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_teams: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**list[Team]**](Team.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Teams |  -  |
 **400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7170,12 +8570,10 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v1_update_current_domain**
-> object v1_update_current_domain(domain_options)
+# **v1_update_hook**
+> Hook v1_update_hook(hook_id, v1_create_hook_parameters)
 
-Update Current Domain
-
-Update the domain for the current user
+Update an existing hypervisor hook
 
 ### Example
 
@@ -7204,20 +8602,15 @@ async def main():
     async with corellium_api.ApiClient(configuration) as api_client:
         # Create an instance of the API class
         api_instance = corellium_api.CorelliumApi(api_client)
-        domain_options = {
-    "totpRequired": false,
-    "trialExtension": {
-        "duration": 7,
-        "reason": "I need another week"
-    }
-} # DomainOptions | Domain Options
+        hook_id = 'hook_id_example' # str | Hook ID
+v1_create_hook_parameters = { "enabled": false} # V1CreateHookParameters | application/json
 
         try:
-            # Update Current Domain
-            api_response = await api_instance.v1_update_current_domain(domain_options)
+            # Update an existing hypervisor hook
+            api_response = await api_instance.v1_update_hook(hook_id, v1_create_hook_parameters)
             pprint(api_response)
         except ApiException as e:
-            print("Exception when calling CorelliumApi->v1_update_current_domain: %s\n" % e)
+            print("Exception when calling CorelliumApi->v1_update_hook: %s\n" % e)
 
 if __name__ == "__main__":
     asyncio.run(main())
@@ -7227,11 +8620,12 @@ if __name__ == "__main__":
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **domain_options** | [**DomainOptions**](DomainOptions.md)| Domain Options | 
+ **hook_id** | **str**| Hook ID | 
+ **v1_create_hook_parameters** | [**V1CreateHookParameters**](V1CreateHookParameters.md)| application/json | 
 
 ### Return type
 
-**object**
+[**Hook**](Hook.md)
 
 ### Authorization
 
@@ -7245,8 +8639,9 @@ Name | Type | Description  | Notes
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**200** | Success |  -  |
+**200** | Hook |  -  |
 **400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -7471,6 +8866,83 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **v1_upgrade_instance**
+> v1_upgrade_instance(instance_id, instance_upgrade_body)
+
+Upgrade iOS version
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        instance_id = 'instance_id_example' # str | 
+instance_upgrade_body = {
+  "os":"16.1",
+  "osbuild":"20B79"
+} # InstanceUpgradeBody | 
+
+        try:
+            # Upgrade iOS version
+            api_instance.v1_upgrade_instance(instance_id, instance_upgrade_body)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_upgrade_instance: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **instance_id** | **str**|  | 
+ **instance_upgrade_body** | [**InstanceUpgradeBody**](InstanceUpgradeBody.md)|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**202** | Accepted |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **v1_upload_image_data**
 > Image v1_upload_image_data(image_id, body)
 
@@ -7619,6 +9091,8 @@ This endpoint does not need any parameter.
 # **v1_users_change_password_post**
 > v1_users_change_password_post(password_change_body)
 
+Change User Password
+
 Authenticated solely by the old-password.
 
 ### Example
@@ -7649,7 +9123,7 @@ async def main():
 } # PasswordChangeBody | 
 
         try:
-            # Authenticated solely by the old-password.
+            # Change User Password
             api_instance.v1_users_change_password_post(password_change_body)
         except ApiException as e:
             print("Exception when calling CorelliumApi->v1_users_change_password_post: %s\n" % e)
@@ -7754,15 +9228,14 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **v2_trial_requests**
-> v2_trial_requests(trial_request_options)
+# **v1_web_player_allowed_domains**
+> WebPlayerSession v1_web_player_allowed_domains()
 
-Create Trial Request (v2)
-
-Allow third party integrations to create trial requests
+Retrieve the list of allowed domains for all Webplayer sessions
 
 ### Example
 
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
 ```python
 from __future__ import print_function
 import time
@@ -7770,11 +9243,16 @@ import asyncio
 import corellium_api
 from corellium_api.rest import ApiException
 from pprint import pprint
-# Defining the host is optional and defaults to https://app.corellium.com/api
-# See configuration.py for a list of all supported configuration parameters.
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
 configuration = corellium_api.Configuration(
     host = "https://app.corellium.com/api"
 )
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 
 async def main():
@@ -7782,16 +9260,91 @@ async def main():
     async with corellium_api.ApiClient(configuration) as api_client:
         # Create an instance of the API class
         api_instance = corellium_api.CorelliumApi(api_client)
-        trial_request_options = {
-    "email": "user@example.com",
-    "name": "Jane Doe"
-} # TrialRequestOptions | Trial Request Options
+        
+        try:
+            # Retrieve the list of allowed domains for all Webplayer sessions
+            api_response = await api_instance.v1_web_player_allowed_domains()
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_web_player_allowed_domains: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**WebPlayerSession**](WebPlayerSession.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_web_player_create_session**
+> WebPlayerSession v1_web_player_create_session(web_player_create_session_request)
+
+Create a new Webplayer Session
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        web_player_create_session_request = {
+  "projectId": "0fc719fc-335d-458c-a424-51a550a73d12",
+  "instanceId": "fbd94550-3f74-4d46-a6ed-c26cbfb23340",
+  "expiresIn": 18000,
+  "features": {
+    "apps": true,
+    "files": true
+  },
+} # WebPlayerCreateSessionRequest | Request Data
 
         try:
-            # Create Trial Request (v2)
-            api_instance.v2_trial_requests(trial_request_options)
+            # Create a new Webplayer Session
+            api_response = await api_instance.v1_web_player_create_session(web_player_create_session_request)
+            pprint(api_response)
         except ApiException as e:
-            print("Exception when calling CorelliumApi->v2_trial_requests: %s\n" % e)
+            print("Exception when calling CorelliumApi->v1_web_player_create_session: %s\n" % e)
 
 if __name__ == "__main__":
     asyncio.run(main())
@@ -7801,15 +9354,15 @@ if __name__ == "__main__":
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **trial_request_options** | [**TrialRequestOptions**](TrialRequestOptions.md)| Trial Request Options | 
+ **web_player_create_session_request** | [**WebPlayerCreateSessionRequest**](WebPlayerCreateSessionRequest.md)| Request Data | 
 
 ### Return type
 
-void (empty response body)
+[**WebPlayerSession**](WebPlayerSession.md)
 
 ### Authorization
 
-No authorization required
+[BearerAuth](../README.md#BearerAuth)
 
 ### HTTP request headers
 
@@ -7819,8 +9372,223 @@ No authorization required
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-**204** | Accepted |  -  |
+**200** | Success |  -  |
 **400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_web_player_destroy_session**
+> v1_web_player_destroy_session(session_id)
+
+Tear down a Webplayer Session
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        session_id = 'session_id_example' # str | Webplayer Session identifier
+
+        try:
+            # Tear down a Webplayer Session
+            api_instance.v1_web_player_destroy_session(session_id)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_web_player_destroy_session: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **str**| Webplayer Session identifier | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_web_player_list_sessions**
+> list[WebPlayerSession] v1_web_player_list_sessions()
+
+List all Webplayer sessions
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        
+        try:
+            # List all Webplayer sessions
+            api_response = await api_instance.v1_web_player_list_sessions()
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_web_player_list_sessions: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**list[WebPlayerSession]**](WebPlayerSession.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **v1_web_player_session_info**
+> WebPlayerSession v1_web_player_session_info(session_id)
+
+Retrieve Webplayer Session Information
+
+### Example
+
+* Bearer (ApiToken or JWT) Authentication (BearerAuth):
+```python
+from __future__ import print_function
+import time
+import asyncio
+import corellium_api
+from corellium_api.rest import ApiException
+from pprint import pprint
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure Bearer authorization (ApiToken or JWT): BearerAuth
+configuration = corellium_api.Configuration(
+    host = "https://app.corellium.com/api"
+)
+configuration.access_token = 'YOUR_ACCESS_TOKEN'
+
+
+async def main():
+    # Enter a context with an instance of the API client
+    async with corellium_api.ApiClient(configuration) as api_client:
+        # Create an instance of the API class
+        api_instance = corellium_api.CorelliumApi(api_client)
+        session_id = 'session_id_example' # str | Webplayer Session identifier
+
+        try:
+            # Retrieve Webplayer Session Information
+            api_response = await api_instance.v1_web_player_session_info(session_id)
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling CorelliumApi->v1_web_player_session_info: %s\n" % e)
+
+if __name__ == "__main__":
+    asyncio.run(main())
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **session_id** | **str**| Webplayer Session identifier | 
+
+### Return type
+
+[**WebPlayerSession**](WebPlayerSession.md)
+
+### Authorization
+
+[BearerAuth](../README.md#BearerAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**400** | Bad Request |  -  |
+**403** | Forbidden |  -  |
+**404** | Not Found |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

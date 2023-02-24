@@ -1,6 +1,7 @@
 # ApiNotFoundError
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

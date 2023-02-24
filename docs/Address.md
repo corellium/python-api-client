@@ -1,5 +1,6 @@
 # Address
 
+The user's address
 
 ## Properties
 Name | Type | Description | Notes

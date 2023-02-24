@@ -1,6 +1,7 @@
 # GpioStateDefinition
 
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
