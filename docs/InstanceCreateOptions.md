@@ -17,7 +17,7 @@ Name | Type | Description | Notes
 **encrypt** | **bool** |  | [optional] 
 **override_wifi_mac** | **str** |  | [optional] 
 **volume** | [**VolumeOptions**](VolumeOptions.md) |  | [optional] 
-**snapshot** | **str** | Snapshot ID | [optional] 
+**snapshot** | **str** | Snapshot ID for this instance to be cloned from if defined | [optional] 
 **boot_options** | [**InstanceBootOptions**](InstanceBootOptions.md) |  | [optional] 
 **device** | [**Model**](Model.md) |  | [optional] 
 
