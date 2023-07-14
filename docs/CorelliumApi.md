@@ -2905,7 +2905,6 @@ async def main():
         project = {
   "name": "New Project",
   "settings": {
-    "version": 1,
     "internet-access": true
   },
   "quotas": {
@@ -7007,7 +7006,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_restore_backup**
-> v1_restore_backup(instance_id)
+> v1_restore_backup(instance_id, body=body)
 
 Restore backup
 
@@ -7039,10 +7038,11 @@ async def main():
         # Create an instance of the API class
         api_instance = corellium_api.CorelliumApi(api_client)
         instance_id = 'instance_id_example' # str | Instance ID - uuid
+body = None # object | Restore backup data (optional)
 
         try:
             # Restore backup
-            api_instance.v1_restore_backup(instance_id)
+            api_instance.v1_restore_backup(instance_id, body=body)
         except ApiException as e:
             print("Exception when calling CorelliumApi->v1_restore_backup: %s\n" % e)
 
@@ -7055,6 +7055,7 @@ if __name__ == "__main__":
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **instance_id** | **str**| Instance ID - uuid | 
+ **body** | **object**| Restore backup data | [optional] 
 
 ### Return type
 
@@ -7066,7 +7067,7 @@ void (empty response body)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
@@ -7945,7 +7946,7 @@ async def main():
         # Create an instance of the API class
         api_instance = corellium_api.CorelliumApi(api_client)
         instance_id = 'instance_id_example' # str | Instance ID - uuid
-netdump_filter = corellium_api.NetdumpFilter() # NetdumpFilter |  (optional)
+netdump_filter = { } # NetdumpFilter |  (optional)
 
         try:
             # Start Enhanced Network Monitor on an instance.

@@ -5,7 +5,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version** | **float** |  | [optional] 
 **internet_access** | **bool** |  | [optional] 
 **dhcp** | **bool** |  | [optional] 
 
