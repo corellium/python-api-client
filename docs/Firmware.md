@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **sha256sum** | **str** |  | [optional] 
 **sha1sum** | **str** |  | [optional] 
 **md5sum** | **str** |  | [optional] 
-**size** | **int** |  | [optional] 
+**size** | **float** |  | [optional] 
 **unique_id** | **str** |  | [optional] 
 **metadata** | **object** | Firmware metadata | [optional] 
 **releasedate** | **datetime** | Release Date | [optional] 

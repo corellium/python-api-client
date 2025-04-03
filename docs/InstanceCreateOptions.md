@@ -5,6 +5,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**shared_snapshot** | **str** | identifier of the snapshot that was shared. | [optional] 
+**shared_snapshot_password** | **str** | optional password if the shared snapshot requires a password. | [optional] 
 **name** | **str** | the name of the device | [optional] 
 **key** | **str** | Key used to encrypt the Instance | [optional] 
 **flavor** | **str** | the flavor id | 
@@ -15,7 +17,7 @@ Name | Type | Description | Notes
 **fwpackage** | **str** | URL or image id | [optional] 
 **orig_fw_package_url** | **str** | URL that firmware package used to create this instance is available at | [optional] 
 **encrypt** | **bool** |  | [optional] 
-**override_wifi_mac** | **str** |  | [optional] 
+**wifi_mac** | **str** |  | [optional] 
 **volume** | [**VolumeOptions**](VolumeOptions.md) |  | [optional] 
 **snapshot** | **str** | Snapshot ID for this instance to be cloned from if defined | [optional] 
 **boot_options** | [**InstanceBootOptions**](InstanceBootOptions.md) |  | [optional] 

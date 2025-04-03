@@ -7,8 +7,8 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **tags** | **list[str]** |  | [optional] 
 **running** | **bool** |  | [optional] 
-**disk_usage** | **int** |  | [optional] 
-**date** | **int** |  | [optional] 
+**disk_usage** | **float** |  | [optional] 
+**date** | **float** |  | [optional] 
 **application_type** | **str** |  | [optional] 
 **name** | **str** |  | [optional] 
 **bundle_id** | **str** |  | [optional] 
