@@ -3957,7 +3957,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_create_network_connection**
-> v1_create_network_connection(create_network_connection_options)
+> NetworkConnection v1_create_network_connection(create_network_connection_options)
 
 Create a new Network Connection
 
@@ -4011,7 +4011,8 @@ async def main():
 
         try:
             # Create a new Network Connection
-            api_instance.v1_create_network_connection(create_network_connection_options)
+            api_response = await api_instance.v1_create_network_connection(create_network_connection_options)
+            pprint(api_response)
         except ApiException as e:
             print("Exception when calling CorelliumApi->v1_create_network_connection: %s\n" % e)
 
@@ -4027,7 +4028,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**NetworkConnection**](NetworkConnection.md)
 
 ### Authorization
 
@@ -4036,8 +4037,13 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -11350,7 +11356,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **v1_update_network_connection**
-> v1_update_network_connection(id, update_network_connection_options, force=force)
+> NetworkConnection v1_update_network_connection(id, update_network_connection_options, force=force)
 
 Update Network Connection
 
@@ -11406,7 +11412,8 @@ force = True # bool | Force deletion (true only or not present) (optional)
 
         try:
             # Update Network Connection
-            api_instance.v1_update_network_connection(id, update_network_connection_options, force=force)
+            api_response = await api_instance.v1_update_network_connection(id, update_network_connection_options, force=force)
+            pprint(api_response)
         except ApiException as e:
             print("Exception when calling CorelliumApi->v1_update_network_connection: %s\n" % e)
 
@@ -11424,7 +11431,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-void (empty response body)
+[**NetworkConnection**](NetworkConnection.md)
 
 ### Authorization
 
@@ -11433,8 +11440,13 @@ void (empty response body)
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: Not defined
+ - **Accept**: application/json
 
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Success |  -  |
+**403** | Forbidden |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

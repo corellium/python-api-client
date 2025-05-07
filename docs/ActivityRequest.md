@@ -13,8 +13,8 @@ Name | Type | Description | Notes
 **project** | **str** | Instance identifier used to filter instance resources | [optional] 
 **actor** | **str** | Actor identifier used to filter actor resources | [optional] 
 **search** | **str** | Last filter applied and is a fuzzy match on results | [optional] 
-**to** | **str** | Date to filter to, keyed off of createdAt, defaults to now | [optional] 
-**_from** | **str** | Date to filter from, keyed off of createdAt, defaults to 1 week ago | [optional] 
+**to** | **str** | Date to filter to, keyed off of createdAt | [optional] 
+**_from** | **str** | Date to filter from, keyed off of createdAt | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

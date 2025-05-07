@@ -7529,7 +7529,7 @@ class CorelliumApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: NetworkConnection
         """
         kwargs['_return_http_data_only'] = True
         return self.v1_create_network_connection_with_http_info(create_network_connection_options, **kwargs)  # noqa: E501
@@ -7567,7 +7567,7 @@ class CorelliumApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(NetworkConnection, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -7614,6 +7614,10 @@ class CorelliumApi(object):
         body_params = None
         if 'create_network_connection_options' in local_var_params:
             body_params = local_var_params['create_network_connection_options']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = local_var_params.get('_content_type',
             self.api_client.select_header_content_type(
@@ -7623,7 +7627,10 @@ class CorelliumApi(object):
         # Authentication setting
         auth_settings = ['BearerAuth']  # noqa: E501
 
-        response_types_map = {}
+        response_types_map = {
+            200: "NetworkConnection",
+            403: "ApiError",
+        }
 
         return self.api_client.call_api(
             '/v1/network/connections', 'POST',
@@ -21735,7 +21742,7 @@ class CorelliumApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: NetworkConnection
         """
         kwargs['_return_http_data_only'] = True
         return self.v1_update_network_connection_with_http_info(id, update_network_connection_options, **kwargs)  # noqa: E501
@@ -21777,7 +21784,7 @@ class CorelliumApi(object):
         :return: Returns the result object.
                  If the method is called asynchronously,
                  returns the request thread.
-        :rtype: None
+        :rtype: tuple(NetworkConnection, status_code(int), headers(HTTPHeaderDict))
         """
 
         local_var_params = locals()
@@ -21834,6 +21841,10 @@ class CorelliumApi(object):
         body_params = None
         if 'update_network_connection_options' in local_var_params:
             body_params = local_var_params['update_network_connection_options']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # HTTP header `Content-Type`
         header_params['Content-Type'] = local_var_params.get('_content_type',
             self.api_client.select_header_content_type(
@@ -21843,7 +21854,10 @@ class CorelliumApi(object):
         # Authentication setting
         auth_settings = ['BearerAuth']  # noqa: E501
 
-        response_types_map = {}
+        response_types_map = {
+            200: "NetworkConnection",
+            403: "ApiError",
+        }
 
         return self.api_client.call_api(
             '/v1/network/connections/{id}', 'PUT',

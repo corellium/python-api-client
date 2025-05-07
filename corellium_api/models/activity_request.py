@@ -278,7 +278,7 @@ class ActivityRequest(object):
     def to(self):
         """Gets the to of this ActivityRequest.  # noqa: E501
 
-        Date to filter to, keyed off of createdAt, defaults to now  # noqa: E501
+        Date to filter to, keyed off of createdAt  # noqa: E501
 
         :return: The to of this ActivityRequest.  # noqa: E501
         :rtype: str
@@ -289,7 +289,7 @@ class ActivityRequest(object):
     def to(self, to):
         """Sets the to of this ActivityRequest.
 
-        Date to filter to, keyed off of createdAt, defaults to now  # noqa: E501
+        Date to filter to, keyed off of createdAt  # noqa: E501
 
         :param to: The to of this ActivityRequest.  # noqa: E501
         :type to: str
@@ -301,7 +301,7 @@ class ActivityRequest(object):
     def _from(self):
         """Gets the _from of this ActivityRequest.  # noqa: E501
 
-        Date to filter from, keyed off of createdAt, defaults to 1 week ago  # noqa: E501
+        Date to filter from, keyed off of createdAt  # noqa: E501
 
         :return: The _from of this ActivityRequest.  # noqa: E501
         :rtype: str
@@ -312,7 +312,7 @@ class ActivityRequest(object):
     def _from(self, _from):
         """Sets the _from of this ActivityRequest.
 
-        Date to filter from, keyed off of createdAt, defaults to 1 week ago  # noqa: E501
+        Date to filter from, keyed off of createdAt  # noqa: E501
 
         :param _from: The _from of this ActivityRequest.  # noqa: E501
         :type _from: str
