@@ -14,7 +14,7 @@
 
 from __future__ import absolute_import
 
-__version__ = "0.4.0"
+__version__ = "0.4.1"
 
 # import apis into sdk package
 from corellium_api.api.corellium_api import CorelliumApi
