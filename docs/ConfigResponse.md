@@ -6,6 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **on_site** | **bool** | Denotes whether it&#39;s an on-site install | [optional] 
+**network_types** | **list[str]** | Valid network types (e.g. \&quot;nat\&quot;, \&quot;bridged\&quot;, \&quot;routed\&quot;) | [optional] 
+**network_type** | **str** | Current network type setting | [optional] 
 **show_domain_settings** | **bool** | Denotes whether to show domain settings | [optional] 
 **version** | **str** | Denotes the version | [optional] 
 **invalid_build** | **bool** | Denotes whether the build is invalid | [optional] 

@@ -5,9 +5,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**allocate** | **float** | GB | [optional] 
-**partitions** | **list[object]** |  | [optional] 
-**compute_node** | **str** |  | [optional] 
+**blocks** | **float** | blocks to resize partition to | [optional] 
+**name** | **str** | name of partition | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
