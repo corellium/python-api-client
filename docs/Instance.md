@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 **boot_options** | [**InstanceBootOptions**](InstanceBootOptions.md) |  | [optional] 
 **service_ip** | **str** | Services IP Address | [optional] 
 **wifi_ip** | **str** | LAN IP Address | [optional] 
-**secondary_ip** | **str** | Secondary Inteface LAN IP Address (if supported) | [optional] 
+**secondary_ip** | **str** | Secondary Interface LAN IP Address (if supported) | [optional] 
 **services** | [**InstanceServices**](InstanceServices.md) |  | [optional] 
 **panicked** | **bool** |  | [optional] 
 **created** | **datetime** | Time instance was created | [optional] 

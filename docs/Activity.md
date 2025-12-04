@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **project_id** | **str** | Unique identifier for project if applicable | [optional] 
 **instance_id** | **str** | Unique identifier for instance if applicable | [optional] 
 **created_at** | **str** | Timestamp of when the activity was created | [optional] 
-**updated_at** | **str** | Timestamp of the activity was last updated | [optional] 
+**updated_at** | **str** | Timestamp of when the activity was last updated | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
