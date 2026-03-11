@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **pac** | **bool** | Enable PAC | [optional] 
 **aprr** | **bool** | Enable APRR | [optional] 
 **additional_tags** | [**list[InstanceBootOptionsAdditionalTag]**](InstanceBootOptionsAdditionalTag.md) |  | [optional] 
+**kernel** | [**InstanceBootOptionsKernel**](InstanceBootOptionsKernel.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

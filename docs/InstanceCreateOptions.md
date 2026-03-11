@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **orig_fw_package_url** | **str** | URL that firmware package used to create this instance is available at | [optional] 
 **encrypt** | **bool** |  | [optional] 
 **wifi_mac** | **str** |  | [optional] 
+**wan_access** | **bool** | manages internet access | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
